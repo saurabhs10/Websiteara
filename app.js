@@ -5,10 +5,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const dbScript = require("./dbScripts");
 
-//creating for multer to define where restaurant images will be uploaded
-
-
-
 let db;
 
 //creating database connections
