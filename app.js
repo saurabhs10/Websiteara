@@ -19,7 +19,7 @@ dbScript
 
 //for website to access static files
 app.use("/css", express.static(__dirname + "/css"));
-
+app.use('/images', express.static(__dirname + "/images"))
 app.use("/scripts", express.static(__dirname + "/scripts"));
 
 //so that server can parse json requests
