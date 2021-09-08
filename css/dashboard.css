@@ -5,11 +5,12 @@
 }
 
 .res-card {
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 2px solid black;
+  border-radius: 4px;
   width: 18.1em;
-  background-color: #b8dbd9;
+  background-color: whitesmoke;
   margin: 1em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .restaurant-name {
