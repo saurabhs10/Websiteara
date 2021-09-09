@@ -1,7 +1,7 @@
 const email = document.getElementById("email");
 const logoutBtn = document.getElementById("logout");
 
-email.innerText = sessionStorage.getItem("res-email");
+email.innerText = sessionStorage.getItem("res-username");
 document.title = email.innerText + "'s Profile";
 
 logoutBtn.addEventListener("click", () => {
