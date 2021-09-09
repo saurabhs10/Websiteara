@@ -108,6 +108,7 @@ async function getRestaurants(db) {
 }
 
 
+
 async function getOneRestaurant(db, row) {
   try {
     const result = await db.all(
@@ -122,7 +123,24 @@ async function getOneRestaurant(db, row) {
   }
 }
 
-
+async function getUserPreviousBookings(db, row) {
+  try {
+    const userName = row.tableName.replace(/[^a-zA-Z0-9]/g, "");
+    await db.run(
+      `CREATE TABLE IF NOT EXISTS ${userName}(name text, booking_name text, time text, tables int, price int, description text, image text)`
+    );
+    const result = await db.all(`SELECT * FROM ${userName}`);
+    if (result) return { restaurants: result, available: true };
+    return { restaurants: result, available: false };
+  } catch (e) {
+    if (!row.tableName)
+      console.error(
+        ` `
+      );
+    else console.error(`Previous booking error: ${e}`);
+    return { restaurants: [], available: false };
+  }
+}
 
 
 
@@ -189,27 +207,7 @@ async function updateRestaurant(db, row) {
   }
 }
 
-async function searchRestaurant(db, row) {
-  try {
-    const names = await db.all(
-      `SELECT name, image FROM restaurant WHERE name LIKE '%${row.search}%' OR location LIKE '%${row.search}%'`
-    );
 
-    const rows = [];
-    for (let obj of names) {
-      const resTable = obj.name.replace(/[^a-zA-Z0-9]/g, "");
-      rows.push(
-        ...(await db.all(`SELECT * FROM ${resTable} WHERE time=?`, row.time))
-      );
-      rows[rows.length - 1].image = obj.image;
-    }
-
-    return rows;
-  } catch (e) {
-    console.error(e);
-    return [];
-  }
-}
 
 module.exports = {
   init,
@@ -218,8 +216,8 @@ module.exports = {
   login,
   register,
   getRestaurants,
+  getUserPreviousBookings,
   deleteRestaurant,
   getOneRestaurant,
-  updateRestaurant,
-  searchRestaurant,
+  updateRestaurant
 };
