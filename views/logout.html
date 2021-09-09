@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link rel="icon" href="../images/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/logout.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/main.css " />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
 
-<head>
-    <link rel="icon" href="../images/logo.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/logout.css">
-    <link rel="stylesheet" href="../css/login.css">
-</head>
-
-<body>
-    <header>
-        <a href="/">
-            <img id="logo" src="../images/logo.jpeg" alt="logo">
-        </a>
-    </header>
-    <h2>Profile</h2>
+  <body>
+    <nav class="nav2-gradient navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="images/egg-fried.svg"
+            style="height: 30px; width: 30px; margin-bottom: 5px"
+          />
+          Websiteara</a
+        >
+      </div>
+    </nav>
+    <h2>Hey There!</h2>
     <i id="profile-icon" class="fas fa-user"></i>
-    <h3 id="email"></h3>
-    <button id="logout" type="submit" class="btn btn-primary">Logout</button>
-    <script src="../scripts/logout.js"></script>
-</body>
+    <h3 id="email" class="mb-2 mt-3"></h3>
+    <button id="logout" type="submit" class="btn btn-outline-danger">
+      Logout
+    </button>
 
+    <div class="container">
+        <hr class="my-4">
+        <p class="text-center text-muted">&copy; Websiteara</p>
+      </footer>
+    </div>
+    <script src="../scripts/logout.js"></script>
+  </body>
 </html>
