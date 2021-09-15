@@ -4,6 +4,10 @@ const password = document.getElementById("password");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if(email.value === "" || password.value === ""){
+    window.alert("Necessary field is missing");
+    return;
+  }
 
   fetch("http://localhost:3000/login-user", {
     method: "POST",
