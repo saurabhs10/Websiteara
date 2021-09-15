@@ -66,7 +66,9 @@ app.get("/cancellation", (req, res) => {
   res.sendFile(__dirname + "/views/cancellation.html");
 });
 
-
+app.get("/get-restaurants", (req, res) => {
+  dbScript.getRestaurants(db).then((r) => res.status(200).send(r));
+});
 
 app.get("/search", (req, res) => {
   res.sendFile(__dirname + "/views/search.html");
@@ -99,13 +101,19 @@ app.post("/login-user", (req, res) => {
   });
 });
 
-
+app.post("/get-user-bookings", (req, res) => {
+  dbScript.getUserPreviousBookings(db, req.body).then((r) => {
+    res.status(200).send(r);
+  });
+});
 
 app.post("/remove-res", (req, res) => {
   dbScript.deleteRestaurant(db, req.body).then((r) => res.status(200).send(r));
 });
 
-
+app.post("/get-one-restaurant", (req, res) => {
+  dbScript.getOneRestaurant(db, req.body).then((r) => res.status(200).send(r));
+});
 
 app.post("/update-res", (req, res) => {
   dbScript.updateRestaurant(db, req.body).then((r) => res.status(200).send(r));
@@ -119,7 +127,9 @@ app.post("/cancel-res", (req, res) => {
   dbScript.cancelTable(db, req.body).then((r) => res.status(200).send(r));
 });
 
-
+app.post("/search-res", (req, res) => {
+  dbScript.searchRestaurant(db, req.body).then((r) => res.status(200).send(r));
+});
 
 //for all other route requests send error
 app.get("*", (req, res) => {
