@@ -34,6 +34,6 @@ searchForm.addEventListener("submit", (e) => {
       } else {
         timeDiv.style.display = "flex";
       }
-      loadingContainer.style.display = "none";
+      loadingContainer.style.display =  "none";
     });
 });
