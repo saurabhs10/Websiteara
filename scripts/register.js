@@ -6,11 +6,15 @@ const confirmPassword = document.getElementById("confirm-password");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  if(email.value === "" || password.value === "" || username.value ==="" || confirmPassword.value===""){
+    window.alert("Necessary field is missing");
+    return;
+  }
   if (password.value != confirmPassword.value) {
     alert("Password are not the same");
     return;
   }
-
+  
   fetch("http://localhost:3000/register-user", {
     method: "POST",
     headers: {
