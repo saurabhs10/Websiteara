@@ -22,6 +22,12 @@ modalClose[1].addEventListener("click", () => {
 
 addResForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  
+  if(resName.value === "" || resTables.value === "" || resLocation.value ==="" || resPrice.value==="" || resDesc.value==="" || resImage===""){
+    window.alert("Necessary field(s) are missing");
+    return;
+  }
+
   const obj = {
     resName: resName.value,
     resTables: resTables.value,
@@ -57,6 +63,12 @@ addResForm.addEventListener("submit", (e) => {
 
 editResForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  
+  if(editResName.value === "" || editResPrice.value === "" || editResTables.value ==="" || editResLocation.value==="" || editResDesc.value===""){
+    window.alert("Necessary field is missing");
+    return;
+  }
+
   fetch("http://localhost:3000/update-res", {
     method: "POST",
     headers: {
