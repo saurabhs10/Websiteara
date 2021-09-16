@@ -92,7 +92,7 @@ async function register(db, row) {
   try {
     exec = await db.run(`INSERT INTO account_data VALUES(?, ?, ?)`, [
       row.email,
-      row.userName,
+      row.username,
       row.password,
     ]);
   } catch (e) {
